@@ -4,7 +4,8 @@ let router = express.Router();
 // 引入页面返回控制器
 const pagesController = require('./controllers/pagesController.js');
 const userController = require('./controllers/userController.js');
-const postController=require('./controllers/postController.js');
+const postsController=require('./controllers/postsController.js');
+const cateController=require('./controllers/cateController.js')
 
 //配置整个路由
 //4添加路由监听
@@ -51,11 +52,12 @@ const postController=require('./controllers/postController.js');
 //     res.render('admin/users.ejs')
 // });
 //全部使用链式编程,直接调用pagesController中的函数
-//前台页面
+//前台页面,接口
 router.get('/', pagesController.getIndexPage)
-    //业务处理路由约定接口/login
-    .post('/login',userController.login)
     
+    .post('/login',userController.login)
+    .get('/getAllpost',postsController.getAllpost) 
+    .get('/getAllCate',cateController.getAllCate)
 
 // 后台页面
 router.get('/admin/',pagesController.getAdminIndexPage)  
@@ -70,7 +72,7 @@ router.get('/admin/',pagesController.getAdminIndexPage)
     .get('/admin/settings',pagesController.getAdminSettingsPage)  
     .get('/admin/slides',pagesController.getAdminSlidesPage)  
     .get('/admin/users',pagesController.getAdminUsersPage) 
-    .get('/getAllpost',postController.getAllpost) 
+    
 
 
 // 把router路由暴露

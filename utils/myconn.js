@@ -7,6 +7,7 @@ var connection = mysql.createConnection({
     user:'root',
     password:'root',
     database:'baixiu',
-    
+    //将日期格式转换
+    dateStrings:true,
 })
 module.exports = connection

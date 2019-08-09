@@ -11,7 +11,7 @@ $(function () {
     if (index == -1) {//如果等于-1 就是没有字符串,说明没有参数
         //判断如果截取没有?前的路由名称,使用substring()方法
         routerName = location.href.substring(location.href.lastIndexOf('/') + 1)//就是/后面的
-        console.log(routerName)
+        
     } else {
         //否则就是/和?中间的部分
         routerName = location.href.substring(location.href.lastIndexOf('/') + 1, location.href.indexOf('?'))
